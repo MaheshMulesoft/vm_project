@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<sub-flow name="sub_flow_1Sub_Flow" doc:id="59ee7e9b-60d5-470f-a13f-3e73e07b6233" >
+		<logger level="INFO" doc:name="Logger" doc:id="d5b47e5a-a1ec-442c-8aa3-f53b9098f09e" message="#[payload]"/>
+		<logger level="INFO" doc:name="Logger" doc:id="b6851ad3-3ab4-4127-a4af-7d1ba5fca1e9" message='"subflow1"'/>
+		<logger level="INFO" doc:name="Logger" doc:id="cc16fd9f-58ee-4bc3-bf42-63bb69e75661" message='"END PROJECT"'/>
+	</sub-flow>
+</mule>

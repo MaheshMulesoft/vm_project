@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="045cdf8c-4fe0-4634-aca6-65e624412a78" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="flowFlow" doc:id="a466e7ed-7a4e-43bf-8a75-7cba42d7bc6a" >
+		<http:listener doc:name="Listener" doc:id="1ccb9fb0-d98f-42ca-aff8-c259c7abd52a" config-ref="HTTP_Listener_config" path="/flow"/>
+		<logger level="INFO" doc:name="Logger" doc:id="1c235809-7bb2-4352-894f-9cc024c98d7d" message="#[payload]"/>
+		<logger level="INFO" doc:name="Logger_mahi" doc:id="4d5acb2b-c913-4b8a-8b4d-c2e7e077ca7e" message='"logger mahi"'/>
+		<logger level="INFO" doc:name="Logger _dsu" doc:id="acca2f2e-84da-4deb-9ac5-6927845c5e95" message='"logger dsu"'/>
+		<logger level="INFO" doc:name="Logger_vmv" doc:id="09782a4d-91fa-420f-9cee-98c61f152469" message='"Logger_vmv"'/>
+		<flow-ref doc:name="Flow Reference" doc:id="35c20a19-dbb1-4f51-8367-3207bcf8f5fd" name="flowSub_Flow"/>
+	</flow>
+	<sub-flow name="flowSub_Flow" doc:id="e29725e5-6a6c-4425-8e81-3dc4593434cd" >
+		<logger level="INFO" doc:name="Logger" doc:id="512bbc7d-adaf-4ce4-a053-04691ece0abc" message="#[payload]"/>
+		<logger level="INFO" doc:name="Logger" doc:id="e1801570-dd83-4416-8e55-2e3dd363ebc9" message='"logger1"'/>
+		<logger level="INFO" doc:name="Logger" doc:id="d4768245-9b79-4a8d-af1c-d673f90ea36b" message='"logger2"'/>
+		<flow-ref doc:name="Flow Reference" doc:id="ec69c05a-8d20-4ce2-9518-cb307f61ef1d" name="sub_flow_1Sub_Flow"/>
+	</sub-flow>
+</mule>
